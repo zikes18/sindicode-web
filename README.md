@@ -34,7 +34,7 @@ A UC visa aplicar metodologias ágeis e tecnologias modernas para a criação de
 
 #### **Aula 2: Ferramentas de Gestão e Segurança do Ambiente**
 
-| Tópico | Detalhes |
+| Tópico | Detalhes | 
 | :--- | :--- |
 | **Ferramentas Ágeis** | Análise e configuração de ferramentas para suporte ao SCRUM: **Jira** (abordando SCRUM completo e Kanban reduzido), **Trello**, **Notion**, **GitHub Project**, **Azure Boards/DevOps**. |
 | **Segurança** | Implementação de boas práticas para gerenciamento de credenciais. |
@@ -42,3 +42,8 @@ A UC visa aplicar metodologias ágeis e tecnologias modernas para a criação de
 | **SECRET KEY** | Geração e isolamento da `SECRET_KEY` do Django. |
 | **Dependências** | Instalação da biblioteca `python-dotenv`. |
 | **Código-Chave** | Importação e carregamento da variável de ambiente: <br>```python\nfrom dotenv import load_dotenv\n# pip install python-dotenv\nload_dotenv()\nSECRET_KEY = str(os.getenv("SECRET_KEY"))\n``` |
+
+
+#### **Aula 3: Boas práticas**
+
+| Tópico |
