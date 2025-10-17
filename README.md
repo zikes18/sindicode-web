@@ -46,5 +46,5 @@ A UC visa aplicar metodologias ágeis e tecnologias modernas para a criação de
 
 #### **Aula 3: Boas práticas**
 
-| Tópico |
-| :--- |
+| Tópico | CHAVEOU |
+| :--- | :--- :
