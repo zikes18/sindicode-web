@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ SINDCODE - Python, Django e Ferramentas</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        .header {
+            background-color: #004d40; /* Cor escura do sindicato */
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .faq-container {
+            max-width: 900px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 15px;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .question {
+            font-weight: bold;
+            color: #00796b; /* Cor de destaque do sindicato */
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        .question::before {
+            content: "💡";
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        .answer {
+            background-color: #e0f2f1; /* Fundo suave para a resposta */
+            padding: 15px;
+            border-left: 5px solid #004d40;
+            border-radius: 4px;
+        }
+        .answer p {
+            margin-top: 0;
+        }
+        .illustration {
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px dashed #ccc;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Courier New', monospace;
+            overflow-x: auto;
+            margin-top: 10px;
+            white-space: pre-wrap;
+        }
+        .tip {
+            font-style: italic;
+            color: #757575;
+            margin-top: 10px;
+            padding: 5px;
+            border-top: 1px dotted #ccc;
+        }
+        .code {
+            color: #d81b60; /* Cor para comandos/código */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>FAQ SINDCODE - Dúvidas Comuns de Desenvolvimento</h1>
+        <p>Seu sindicato, na luta por mais conhecimento!</p>
+    </div>
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <div class="question">Como abro o Terminal no PyCharm?</div>
+            <div class="answer">
+                <p>O PyCharm possui um Terminal integrado muito útil para executar comandos como Git, instalação de pacotes (pip) e comandos do Django. Existem duas formas principais de abri-lo:</p>
+                <ol>
+                    <li><strong>Atalho Rápido:</strong> Use o atalho <span class="code">Alt + F12</span> (Windows/Linux) ou <span class="code">⌥F12</span> (macOS).</li>
+                    <li><strong>Clique no Botão:</strong> Clique na aba **Terminal** localizada na parte inferior da janela do PyCharm.</li>
+                </ol>
+                <div class="illustration">
+                    Visualização didática:<br>
+                    <span class="code">[PyCharm Janela]</span><br>
+                    &nbsp;&nbsp;&nbsp;...código aqui...<br>
+                    <span class="code">--------------------</span><br>
+                    <span class="code">[Aba inferior]</span> **Terminal** | Python Console | Run | Debug...<br>
+                    <span class="tip">Procure pelo ícone de um prompt de comando!</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Por que o arquivo <span class="code">.gitignore</span> está tão grande?</div>
+            <div class="answer">
+                <p>O arquivo <span class="code">.gitignore</span> serve para dizer ao Git quais arquivos e pastas ele deve **ignorar** e não incluir no controle de versão (commits). Ele está grande porque, em projetos modernos (especialmente Python/Django), há muitos arquivos gerados automaticamente ou específicos do ambiente que não devem ser compartilhados ou versionados:</p>
+                <ul>
+                    <li><strong>Dependências (<span class="code">venv/env</span>):</strong> A pasta do ambiente virtual (onde estão todas as bibliotecas instaladas).</li>
+                    <li><strong>Arquivos temporários:</strong> Logs, arquivos de cache (<span class="code">.pyc</span>, pastas como <span class="code">__pycache__</span>).</li>
+                    <li><strong>Arquivos de Configuração Local:</strong> Como o próprio <span class="code">.env</span> (ver próxima pergunta).</li>
+                    <li><strong>Arquivos do IDE:</strong> Pastas como <span class="code">.idea</span> (do PyCharm), que contêm configurações específicas do seu computador.</li>
+                </ul>
+                <p>Um <span class="code">.gitignore</span> grande garante que seu repositório Git fique limpo, focado apenas no código fonte essencial, e mais seguro.</p>
+                <div class="illustration">
+                    Exemplo (trecho comum):<br>
+                    # Ambiente Virtual<br>
+                    <span class="code">venv/</span><br>
+                    <span class="code">.env</span><br>
+                    # Python Bytecode<br>
+                    <span class="code">*.pyc</span><br>
+                    <span class="code">__pycache__/</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Por que o arquivo <span class="code">.env</span> não subiu para o Git/GitHub?</div>
+            <div class="answer">
+                <p>O <span class="code">.env</span> (Environment File) é projetado para **NÃO** subir para o repositório Git. Ele contém **variáveis de ambiente confidenciais** e específicas do seu ambiente local, como:</p>
+                <ul>
+                    <li>Chaves secretas da aplicação (<span class="code">SECRET_KEY</span> no Django).</li>
+                    <li>Credenciais de banco de dados (usuário, senha, nome do DB).</li>
+                    <li>Chaves de APIs externas.</li>
+                </ul>
+                <p>O arquivo <span class="code">.gitignore</span>, intencionalmente, possui a linha <span class="code">.env</span> para garantir que essas informações nunca sejam expostas publicamente. **É uma medida de segurança!**</p>
+                <div class="tip"><strong>O que fazer?</strong> Compartilhe um arquivo modelo (<span class="code">.env.example</span> ou <span class="code">.env.template</span>) que lista as variáveis necessárias, mas sem os valores reais. Cada desenvolvedor preenche o seu próprio <span class="code">.env</span>.</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">O que é <span class="code">manage.py</span> no Django?</div>
+            <div class="answer">
+                <p>O <span class="code">manage.py</span> é um utilitário de linha de comando que o Django cria automaticamente em cada projeto. Ele atua como uma **interface de gerenciamento** do projeto, permitindo que você execute comandos administrativos sem ter que instalar o <span class="code">django-admin</span> globalmente ou se preocupar com variáveis de ambiente.</p>
+                <p>Ele centraliza as tarefas mais comuns do Django.</p>
+                <div class="illustration">
+                    Comandos comuns usando <span class="code">manage.py</span>:<br>
+                    <span class="code">python manage.py runserver</span>  (Inicia o servidor de desenvolvimento)<br>
+                    <span class="code">python manage.py makemigrations</span> (Cria os arquivos de migração do banco de dados)<br>
+                    <span class="code">python manage.py migrate</span>     (Aplica as migrações ao banco de dados)<br>
+                    <span class="code">python manage.py createsuperuser</span> (Cria um usuário administrador)
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">No Django, um projeto é um conjunto de aplicativos?</div>
+            <div class="answer">
+                <p><strong>Sim, exatamente!</strong> No Django, a estrutura é organizada da seguinte forma:</p>
+                <ul>
+                    <li>
+                        <strong>Projeto (Project):</strong> É o contêiner de configurações e configurações globais (o seu site inteiro). Ele inclui arquivos como <span class="code">settings.py</span> e <span class="code">urls.py</span> de nível superior.
+                    </li>
+                    <li>
+                        <strong>Aplicativo (App):</strong> É um módulo que faz uma coisa específica (um blog, uma loja, um sistema de usuários). É uma coleção de código que se destina a ser reutilizável.
+                    </li>
+                </ul>
+                <p>Pense assim: um **Projeto** é a Casa, e os **Aplicativos** são os cômodos (quarto, cozinha, sala), cada um com uma função específica, mas todos fazendo parte da mesma Casa.</p>
+                <div class="illustration">
+                    <span class="code">MeuProjeto/</span> &lt;-- O Projeto (A Casa)<br>
+                    ├── <span class="code">settings.py</span><br>
+                    ├── <span class="code">urls.py</span><br>
+                    ├── <span class="code">AppBlog/</span> &lt;-- O App Blog (Um Cômodo)<br>
+                    │   ├── <span class="code">models.py</span><br>
+                    │   └── <span class="code">views.py</span><br>
+                    └── <span class="code">AppUsuarios/</span> &lt;-- O App Usuários (Outro Cômodo)
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Os aplicativos no Django interagem entre si?</div>
+            <div class="answer">
+                <p><strong>Sim, eles interagem!</strong> Essa é a grande vantagem da arquitetura do Django. Embora cada aplicativo seja focado em uma funcionalidade, eles frequentemente precisam se comunicar.</p>
+                <p>A interação geralmente ocorre por meio de:</p>
+                <ul>
+                    <li>
+                        <strong>Modelos (Models):</strong> Um app pode importar o modelo de outro app para criar um relacionamento de banco de dados. Ex: O app "Blog" pode ter um campo <span class="code">ForeignKey</span> que aponta para o modelo "Usuário" do app "Usuarios".
+                    </li>
+                    <li>
+                        <strong>Funções/Views:</strong> É possível chamar funções ou utilizar lógica de um app em outro, importando o código Python.
+                    </li>
+                </ul>
+                <div class="tip">Essa modularidade permite que você reutilize apps em projetos futuros!</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">É necessário usar <span class="code">pip install python-dotenv</span>?</div>
+            <div class="answer">
+                <p>Sim, se você estiver usando o arquivo <span class="code">.env</span> (para armazenar variáveis de ambiente locais/secretas) em um projeto Python/Django, você precisa da biblioteca <span class="code">python-dotenv</span>.</p>
+                <p>Essa biblioteca é responsável por **ler** o conteúdo do arquivo <span class="code">.env</span> e carregar essas variáveis na memória do seu sistema, para que seu código Python possa acessá-las (por exemplo, usando <span class="code">os.environ.get('CHAVE_SECRETA')</span>).</p>
+                <div class="illustration">
+                    Comando de instalação:<br>
+                    <span class="code">pip install python-dotenv</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Para que serve uma <span class="code">venv</span> (Ambiente Virtual)?</div>
+            <div class="answer">
+                <p>Uma <span class="code">venv</span> (Virtual Environment) serve para **isolar** as dependências de um projeto Python do seu sistema operacional. Imagine que você tem dois projetos:</p>
+                <ul>
+                    <li><strong>Projeto A:</strong> Precisa do Django versão 3.2.</li>
+                    <li><strong>Projeto B:</strong> Precisa do Django versão 4.2.</li>
+                </ul>
+                <p>Se você instalasse tudo globalmente, haveria conflito. A <span class="code">venv</span> cria uma pasta isolada para cada projeto, contendo sua própria cópia do Python e do <span class="code">pip</span>, garantindo que as bibliotecas instaladas em um projeto não interfiram nos outros.</p>
+                <div class="tip">É essencial para manter a organização e garantir a reprodutibilidade dos seus projetos.</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Como instalar uma <span class="code">venv</span>?</div>
+            <div class="answer">
+                <p>A ferramenta <span class="code">venv</span> está integrada ao Python (a partir da versão 3.3). Você a cria (instala) com um comando simples, executado na pasta raiz do seu projeto:</p>
+                <div class="illustration">
+                    <span class="code">python -m venv nome_do_ambiente</span><br><br>
+                    *Recomendado usar 'venv' ou '.venv' como nome:*<br>
+                    <span class="code">python -m venv venv</span>
+                </div>
+                <p>Isso criará uma pasta chamada <span class="code">venv</span> (ou o nome que você escolheu) contendo o ambiente virtual.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Como ativar uma <span class="code">venv</span>?</div>
+            <div class="answer">
+                <p>A ativação é o processo que coloca o ambiente virtual em uso no seu terminal. Os comandos variam ligeiramente dependendo do seu sistema operacional:</p>
+                <p><strong>No Windows (Prompt de Comando ou PowerShell):</strong></p>
+                <div class="illustration">
+                    <span class="code">.\venv\Scripts\activate</span>
+                </div>
+                <p><strong>No macOS e Linux (Bash/Zsh):</strong></p>
+                <div class="illustration">
+                    <span class="code">source venv/bin/activate</span>
+                </div>
+                <p>Após a ativação, você verá o nome do seu ambiente virtual (<span class="code">(venv)</span>) no início da linha de comando, indicando que o isolamento está ativo!</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Como gerar o arquivo <span class="code">requirements.txt</span>?</div>
+            <div class="answer">
+                <p>O <span class="code">requirements.txt</span> lista todas as bibliotecas e suas versões exatas que seu projeto utiliza. Ele é essencial para que outras pessoas (ou você mesmo no futuro) possam recriar o ambiente virtual com precisão. Você o gera usando o comando <span class="code">pip freeze</span> e redirecionando a saída para um arquivo:</p>
+                <div class="illustration">
+                    <span class="code">pip freeze > requirements.txt</span>
+                </div>
+                <div class="tip">**Atenção:** Execute este comando com a sua <span class="code">venv</span> **ATIVA** para garantir que apenas as dependências do projeto sejam listadas!</div>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Como instalar as dependências de um <span class="code">requirements.txt</span>?</div>
+            <div class="answer">
+                <p>Se você clonou um projeto que já tem o arquivo <span class="code">requirements.txt</span> (e você já ativou sua <span class="code">venv</span>), você instala todas as dependências de uma vez usando o comando <span class="code">pip install</span> com a flag <span class="code">-r</span> (de "requirements" ou "read"):</p>
+                <div class="illustration">
+                    <span class="code">pip install -r requirements.txt</span>
+                </div>
+                <p>O <span class="code">pip</span> irá ler o arquivo e instalar automaticamente todas as bibliotecas listadas, nas versões especificadas.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="question">Como instalar e por que usar o <span class="code">python-dotenv</span>?</div>
+            <div class="answer">
+                <p>O **porquê** está ligado à segurança e organização: ele permite manter chaves secretas e configurações específicas de ambiente fora do seu código fonte e do repositório Git, utilizando o arquivo <span class="code">.env</span> (como explicado nas perguntas 3 e 7).</p>
+                <p>O **como instalar** é feito via <span class="code">pip</span>:</p>
+                <div class="illustration">
+                    <span class="code">pip install python-dotenv</span>
+                </div>
+                <p>Após a instalação, você o usa no seu código Python, geralmente no arquivo de configurações, para carregar as variáveis:</p>
+                <div class="illustration">
+                    # Exemplo de uso no seu settings.py (Django)<br>
+                    <span class="code">from dotenv import load_dotenv</span><br>
+                    <span class="code">import os</span><br>
+                    <span class="code">load_dotenv()</span> # Carrega as variáveis do .env<br><br>
+                    <span class="code">SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
