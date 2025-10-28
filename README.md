@@ -46,5 +46,16 @@ A UC visa aplicar metodologias ágeis e tecnologias modernas para a criação de
 
 #### **Aula 3: Boas práticas**
 
-| Tópico | CHAVE |
-| :--- |:-----:
+3.1: boas práticas da subfunção 2.1
+4.4: controle de versão da subfunção 2.1
+Entre no site para gerar gitignore: https://www.toptal.com/developers/gitignore/api/django
+Entre no github e crie novo repositório: https://github.com/romulodf-cesar/sindcode
+Usar commit especificando a tarefa do SCRUM: git commit -m "<> <> <<#status>>"
+Aprendi a vincular o post-it
+Aprender Django Apps
+O aplicativo do Django é como se fosse um módulo
+
+#### **Aula 4: DRY (Don't repeat yourself) - não seja repetitivo**
+
+index - noticias (principal)
+index - 

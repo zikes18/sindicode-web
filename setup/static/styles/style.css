@@ -1,35 +1,54 @@
-/*
-    estilizar uma tag, uma classe, um identificador
- */
-body{
-    background-color: black;
+
+:root {
+  /* Paleta Principal */
+  --sindcode-azul-principal: #1A2C50; /* (Azul Sindcode) Para confiança, headers, footers */
+  --sindcode-azul-tech: #00AEEF;      /* (Azul Tech) Para links, destaques, inovação */
+  --sindcode-verde-acao: #A6E22E;     /* (Verde Renovação) Para botões de CTA (Call-to-Action) */
+  --sindcode-roxo-comunidade: #C724B1; /* (Roxo Comunidade) Para badges, eventos, ênfase */
+
+  /* Paleta Neutra (Modo Claro) */
+  --sindcode-fundo-claro: #F8F9FA;    /* (Branco Digital) Fundo principal do conteúdo */
+  --sindcode-texto-principal: #212529;  /* (Grafite Texto) Para parágrafos, alta legibilidade */
+
+  /* Paleta Neutra (Modo Escuro) */
+  --sindcode-fundo-escuro: #121A2A;   /* (Grafite Profundo) Fundo do body, headers, footers */
+  --sindcode-texto-secundario: #ADB5BD; /* (Cinza Suporte) Texto sobre fundos escuros */
+
+  /* Cor de Borda */
+  --sindcode-borda: #dee2e6;          /* Borda sutil para o modo claro */
 }
-.para_azul{
-    color: blue;
+body {
+  background-color: var(--sindcode-fundo-escuro);
+  color: var(--sindcode-texto-principal);
 }
-#topo{
-    background-color: #026302;
-    width: 1852px;
-    height: 160px;
-    border: 2px solid #ffffff;
+.para_azul {
+  color: var(--sindcode-azul-tech);
 }
-#midias_busca{
-    background-color: #101010;
-    width: 100%;
-    height: 52px;
+#topo {
+  background-color: var(--sindcode-azul-principal);
+  width: 1852px; /* Nota: considere usar '100%' em vez de '1852px' para responsividade */
+  height: 160px;
+  border: 2px solid var(--sindcode-azul-tech); /* Usamos o azul tech para uma borda vibrante */
 }
-#logo_menu{
-    background-color: #FFFFFF;
-    width: 100%;
-    height: 108px;
+#midias_busca {
+  background-color: var(--sindcode-fundo-escuro);
+  width: 100%;
+  height: 52px;
 }
-main{
-    width: 100%;
-    height: 1200px;
-    border:2px solid #9f9d9d;
-    background-color: #f5dd5d;
+#logo_menu {
+  background-color: var(--sindcode-fundo-claro);
+  width: 100%;
+  height: 108px;
 }
-footer{
-    height: 67px;
-    background-color: #570808;
+main {
+  width: 100%;
+  height: 1200px; /* Considere usar 'min-height' em vez de 'height' */
+  border: 2px solid var(--sindcode-borda);
+  background-color: var(--sindcode-fundo-claro);
+  color: var(--sindcode-texto-principal); /* Garante que o texto aqui seja escuro */
+}
+footer {
+  height: 67px;
+  background-color: var(--sindcode-azul-principal);
+  color: var(--sindcode-texto-secundario); /* Texto claro sobre fundo escuro */
 }

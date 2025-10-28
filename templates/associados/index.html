@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>Sindcode</title>
-</head>
-<body>
+{% extends 'noticias/base.html' %} <!-- DTL - Django Template Language -->
+{% load static %}
+{% block content %}
     <h1>Cadastro de associado</h1>
     <form>
         CPF <input type="text" name="cpf" placeholder="XXX.XXX.XXX-XX">
@@ -22,6 +18,4 @@
         Data nascimento <input type="date" name="dt_nasc">
         <input type="submit" value="cadastrar">
     </form>
-
-</body>
-</html>
+{% endblock %}

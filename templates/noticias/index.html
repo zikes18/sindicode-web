@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+{% extends 'noticias/base.html' %} <!-- DTL - Django Template Language -->
 {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>Sindcode</title>
-    <!-- Introdução ao DTL (Django Template Language) -->
-    <link rel="stylesheet" href="{% static 'styles/style.css'%}">
-</head>
-<body>
-
+{% block content %}
     <div id="site">
         <header id="topo">
             aqui é a galera do BACK 4:20 🍁
@@ -47,6 +39,4 @@
             aqui é o rodapé
         </footer>
     </div>
-
-</body>
-</html>
+{% endblock %}
