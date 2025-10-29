@@ -9,7 +9,22 @@
                 aqui é o slide show
             </div>
             <div id="noticias">
-                aqui são as noticias
+            {% for noticia_id, info in cards.items %}
+                <div class="card mb-3" style="max-width: 540px;">
+                  <div class="row g-0">
+                    <div class="col-md-4">
+                      <img src="{% static 'assets/noticias/foto_noticias.jpeg' %}" class="img-fluid rounded-start" alt="mulheres pego no sindicato">
+                    </div>
+                    <div class="col-md-8">
+                      <div class="card-body">
+                        <h5 class="card-title">{{ info.titulo }}</h5>
+                        <p class="card-text">{{ info.conteudo }}</p>
+                        <p class="card-text"><small class="text-body-secondary">{{ info.data_publicacao }}</small></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            {% endfor %}
             </div>
             <div id="juridico">
                 aqui é o juridico
