@@ -132,3 +132,13 @@ O aplicativo do Django é como se fosse um módulo
 - GitHub
 - Linkedin
 - Vercel e Django
+
+classe - conjunto de objetos
+atributo - caracteristica
+método - funcionalidade do objeto
+construtor - é um recurso especial que serve para construir um objeto e/ou iniciar a atribuição de valores
+objeto - é uma instância de uma classe
+herança - uma classe herda de outra e implementa suas próprias caracteristicas
+
+def fora da classe = function
+def dentro da classe = método
