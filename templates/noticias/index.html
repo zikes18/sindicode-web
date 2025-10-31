@@ -3,13 +3,12 @@
 {% block content %}
     <div id="site">
 
-
         <main id="area">
             <div id="slide show">
                 aqui é o slide show
             </div>
             <div id="noticias">
-            {% for noticia_id, info in cards.items %}
+            {% for info in cards %}
                 <div class="card mb-3" style="max-width: 540px;">
                   <div class="row g-0">
                     <div class="col-md-4">
@@ -17,9 +16,9 @@
                     </div>
                     <div class="col-md-8">
                       <div class="card-body">
-                        <h5 class="card-title">{{ info.titulo }}</h5>
+                        <h5 class="card-title">{{ info.nome }}</h5>
                         <p class="card-text">{{ info.conteudo }}</p>
-                        <p class="card-text"><small class="text-body-secondary">{{ info.data_publicacao }}</small></p>
+                        <p class="card-text"><small class="text-body-secondary">{{ info.damta_publicacao }}</small></p>
                       </div>
                     </div>
                   </div>
