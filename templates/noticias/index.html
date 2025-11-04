@@ -38,12 +38,14 @@
                         </svg>
                     </a>
                 </div>
-              {% if cards %}
-              {% for categorias in cards %}
+                <!-- jsf no java -->
+                {% if cards %}
+                {% for categorias in cards %}
                 <div class="d-grid gap-3">
-                    <!-- Notícia 1 -->
                     <div class="d-flex bg-white p-3 news-card shadow-sm border-start border-white border-4 hover-border-info">
-                        <img src="https://placehold.co/150x100/f0f0f0/333333?text=Foto" alt="Miniatura da notícia" class="d-none d-sm-block rounded-2 me-4" style="width: 100px; height: 80px; object-fit: cover;">
+                        <img src="https://placehold.co/150x100/f0f0f0/333333?text=Foto" alt="Miniatura da notícia"
+                             class="d-none d-sm-block rounded-2 me-4"
+                             style="width: 100px; height: 80px; object-fit: cover;">
                         <div class="flex-grow-1">
                             <div class="small text-muted mb-1">{{categorias.nome}}</div>
                             <h4 class="fs-5 fw-bold mb-1">
@@ -58,10 +60,13 @@
                         </div>
                     </div>
 
-
-            </div>
-            {% endfor %}
-            {% endif  %}
+                </div>
+                {% endfor %}
+                {% else %}
+                <div class="alert alert-warning text-center my-3">
+                    Nenhuma categoria disponível.
+                </div>
+                {% endif %}
 
                 <!-- Lista de Notícias Secundárias -->
                 <div class="d-grid gap-3">
