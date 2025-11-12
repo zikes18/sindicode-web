@@ -17,7 +17,7 @@ class Noticia(models.Model):
     conteudo = models.TextField(null=False, blank=False)
     data_publicacao = models.DateTimeField(null=False, blank=False, auto_now=True)
     destaque = models.CharField(max_length=5 , choices=[('0','0'),('1','1'),('2','2'),('3','3'),('4','4')], default='4')
-    foto = models.CharField(max_length=60, null=False, blank=False)
+    foto = models.ImageField(upload_to="fotos/%Y/%m/%d/", blank=False)
     #Relacionamento N-1(Muitas Noticias para um Autor)
     autor = models.ForeignKey(Autor, on_delete=models.CASCADE, related_name='noticias_autor', null=False)
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name='noticias_categoria', null=False)
