@@ -15,7 +15,7 @@ class Autor(models.Model):
 class Noticia(models.Model):
     titulo = models.CharField(max_length=90, null=False, blank=False)
     conteudo = models.TextField(null=False, blank=False)
-    data_publicacao = models.DateTimeField(null=False, blank=False)
+    data_publicacao = models.DateTimeField(null=False, blank=False, auto_now=True)
     destaque = models.CharField(max_length=5 , choices=[('0','0'),('1','1'),('2','2'),('3','3'),('4','4')], default='4')
     foto = models.CharField(max_length=60, null=False, blank=False)
     #Relacionamento N-1(Muitas Noticias para um Autor)

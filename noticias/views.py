@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from noticias.models import Categoria, Autor
+from noticias.models import Categoria, Autor, Noticia
 
 
 # função
@@ -18,6 +18,11 @@ def index(request):
     categorias = Categoria.objects.all()
     return render(request, 'noticias/index.html', {'cards': categorias})
 
+def noticias(request):
+    noticias = Noticia.objects.all()
+    return render(request, 'noticias/index.html', {'noticias': noticias})
+
 def autores(request):
     autores = Autor.objects.all()
     return render(request, 'noticias/nossos-autores.html', {'autores': autores})
+
