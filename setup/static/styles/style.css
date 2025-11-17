@@ -107,6 +107,38 @@ body {
     color: rgba(173, 216, 230, 0.9);
 }
 
+
+.busca {
+    /* Define a largura do campo. Exemplo: 200px ou uma porcentagem como 100% */
+    width: 200px;
+    float: left;
+
+    /* Espaçamento interno para que o texto não toque nas bordas */
+    padding: 8px 12px;
+    padding-right:50px;
+
+    /* Remove a borda padrão e adiciona uma customizada */
+    border: 1px solid #ccc; /* Borda cinza clara */
+
+    /* Arredonda os cantos, se desejar */
+    border-radius: 20px;
+
+    /* Define uma cor de fundo. 'transparent' ou 'white' são comuns */
+    background-color: white;
+
+    /* Define o tamanho e a família da fonte */
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    margin-right: 12px;
+
+    /* Garante que o input não tenha um contorno estranho ao ser clicado (ajustaremos isso com o :focus) */
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.busca-icone{
+    padding-right: 8px;
+}
 /* * NOTA: Os estilos antigos (#topo, #midias_busca, main, footer)
  * foram removidos. Agora, você deve aplicar as classes do
  * Bootstrap (como "bg-primary", "text-secondary", "border")

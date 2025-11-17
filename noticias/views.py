@@ -26,3 +26,6 @@ def autores(request):
     autores = Autor.objects.all()
     return render(request, 'noticias/nossos-autores.html', {'autores': autores})
 
+def buscar(request):
+    return render(request, 'noticias/buscar.html')
+
