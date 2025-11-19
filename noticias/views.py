@@ -1,6 +1,5 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-
 from noticias.models import Categoria, Autor, Noticia
 
 # função
@@ -18,8 +17,13 @@ def index(request):
     return render(request, 'noticias/index.html', {'cards': categorias})
 
 def noticias(request):
-    noticias = Noticia.objects.all()
-    return render(request, 'noticias/index.html', {'noticias': noticias})
+    destaque_principal = Noticia.objects.filter(destaque='0').order_by('-data_publicacao').first()
+    noticias = Noticia.objects.filter(destaque__in=['1', '2', '3']).order_by('-data_publicacao')
+    context = {
+        'destaque_principal': destaque_principal,
+        'noticias': noticias,
+    }
+    return render(request, 'noticias/index.html', context)
 
 def autores(request):
     autores = Autor.objects.all()
