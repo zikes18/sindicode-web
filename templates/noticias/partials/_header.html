@@ -20,14 +20,14 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item"><a class="nav-link text-white-50" href="#">Institucional</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50" href="{% url 'index' %}">Notícias</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50" href="{% url 'todas_noticias' %}">Notícias</a></li>
                     <li class="nav-item"><a class="nav-link text-white-50" href="#">Publicações</a></li>
                     <li class="nav-item"><a class="nav-link text-white-50" href="#">Fale Conosco</a></li>
                 </ul>
                 <form action=" {% url 'buscar' %}">
                     <input type="text" class="busca" name="buscar" placeholder="Buscar">
                     <button type="submit">
-                        <img class="busca-icone" src="#">
+                        <img class="busca-icone" src="%static '/assets/imagens/noticias/icon_pesquisa.jpg'%">
                     </button>
                 </form>
                 <!-- Botão de Acesso - Cor de Destaque -->

@@ -22,6 +22,7 @@
                     {% endif %}
 
                     <div class="small text-muted mb-2">
+
                         <span class="fw-bold text-info">DESTAQUE</span>
                         <span>•</span>
                         <span>{{ destaque_principal.data_publicacao|date:"d \d\e F \d\e Y" }}</span>
@@ -88,9 +89,9 @@
 
 
                 <div class="text-center pt-4">
-                    <button class="btn btn-primary fw-semibold py-3 px-5 rounded-3 shadow-lg">
+                    <a href="{% url 'todas_noticias' %}" class="btn btn-primary fw-semibold py-3 px-5 rounded-3 shadow-lg" alt="Carregar todas notícias">
                         Carregar Mais Notícias
-                    </button>
+                    </a>
                 </div>
 
             </div>

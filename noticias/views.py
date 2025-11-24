@@ -50,3 +50,25 @@ def detalhe_noticia(request, noticia_id):
         'ultimas_noticias': ultimas_noticias
     }
     return render(request, 'noticias/detalhe_noticia.html', contexto)
+
+def todas_noticias(request):
+    todas_noticias = Noticia.objects.all().order_by('-data_publicacao')
+
+    context = {
+        'noticias': todas_noticias,
+        'titulo_pagina': 'Todas as Notícias Publicadas'
+    }
+    return render(request, 'noticias/buscar.html', context)
+
+
+def categoria(request, categoria_id):
+    categoria = get_object_or_404(Categoria, id=categoria_id)
+
+    noticias_da_categoria = Noticia.objects.filter(categoria=categoria).order_by('-data_publicacao')
+
+    contexto = {
+        'categoria': categoria,
+        'noticias': noticias_da_categoria,
+    }
+
+    return render(request, 'noticias/categoria.html', contexto)
