@@ -42,7 +42,6 @@ def buscar(request):
             noticias = noticias.distinct()
     return render(request, 'noticias/buscar.html',{'noticias': noticias})
 
-
 def detalhe_noticia(request, noticia_id):
     noticia_principal = get_object_or_404(Noticia, pk=noticia_id)
     ultimas_noticias = Noticia.objects.exclude(pk=noticia_id).order_by('-data_publicacao')[:4]
