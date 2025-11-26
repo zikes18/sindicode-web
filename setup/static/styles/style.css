@@ -136,8 +136,35 @@ body {
     transition: all 0.3s ease;
 }
 
-.busca-icone{
-    padding-right: 8px;
+/* Container de Busca - Para garantir que o input preencha o espaço */
+.input-group {
+    /* Garante que o container se comporte como uma barra de busca unificada */
+    width: 250px; /* Ajuste o tamanho desejado para a barra de busca inteira */
+    max-width: 100%;
+}
+
+/* Estilo do Input de Pesquisa */
+.busca {
+    padding-right: 40px; /* Adiciona espaço para o ícone não cobrir o texto */
+    border-radius: 0.25rem 0 0 0.25rem; /* Se estiver usando Bootstrap, arredonda a esquerda */
+    margin-right: 0;
+}
+
+/* Estilo do Botão/Ícone */
+.busca-btn {
+    border: none; /* Remove a borda padrão do botão */
+    background: white; /* Deixa o fundo transparente */
+    padding: 0.375rem 0.5rem; /* Ajusta o padding para centralizar */
+    border-radius: 0 0.25rem 0.25rem 0; /* Arredonda a direita, se estiver usando Bootstrap */
+
+}
+
+/* Estilo da Imagem do Ícone */
+.busca-icone {
+    /* Define um tamanho fixo e pequeno para o ícone */
+    width: 18px;
+    height: 16px;
+    display: block; /* Garante que a imagem se comporte bem no layout */
 }
 /* * NOTA: Os estilos antigos (#topo, #midias_busca, main, footer)
  * foram removidos. Agora, você deve aplicar as classes do
