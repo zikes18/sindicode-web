@@ -22,8 +22,9 @@
                     <li class="nav-item"><a class="nav-link text-white-50" href="#">Institucional</a></li>
                     <li class="nav-item"><a class="nav-link text-white-50"
                                             href="{% url 'todas_noticias' %}">Notícias</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50" href="#">Publicações</a></li>
                     <li class="nav-item"><a class="nav-link text-white-50" href="#">Fale Conosco</a></li>
+                    <li class="nav-item"><a class="nav-link text-white-50"
+                                            href="{% url 'cadastro' %}">Vire um associado</a></li>
                 </ul>
                 <form action="{% url 'buscar' %}" class="d-flex position-relative">
                     <div class="input-group">
@@ -34,8 +35,7 @@
                         </button>
                     </div>
                 </form>
-                <!-- Botão de Acesso - Cor de Destaque -->
-                <a href="#" class="btn btn-info text-white fw-bold rounded-pill shadow-sm py-2 px-4">Área do
+                <a href="{% url 'login' %}" class="btn btn-info text-white fw-bold rounded-pill shadow-sm py-2 px-4">Área do
                     Associado</a>
             </div>
         </nav>

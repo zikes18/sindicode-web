@@ -72,11 +72,13 @@ body {
 .btn-info {
     background-color: var(--bs-info) !important;
     border-color: var(--bs-info) !important;
+    margin-right: 20;
 }
 
 .btn-info:hover {
     background-color: #009ad8 !important; /* Um tom levemente mais escuro */
     border-color: #009ad8 !important;
+    margin-right: 20;
 }
 
 
