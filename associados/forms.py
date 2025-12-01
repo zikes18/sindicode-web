@@ -34,7 +34,8 @@ class AssociadoForm(forms.Form):
     identidade_genero = forms.ChoiceField(
         label='Qual sua identidade de gênero?',
         choices=GENERO_CHOICES,
-        widget=forms.Select(attrs={'class': 'form-control'}),
+        widget=forms.Select(attrs={'class': 'form-control',
+                                   'placeholder': 'Identifique sua identidade'}),
         required=True  # Permitir que a pessoa não declare, embora haja 'Prefiro Não Declarar'
     )
 
@@ -72,4 +73,18 @@ class AssociadoForm(forms.Form):
                 'placeholder': 'Digite sua senha novamente',
             }
         ),
+    )
+
+class LoginForm(forms.Form):
+    nome_login = forms.CharField(
+        label='Nome de Login',
+        required=True,
+        max_length=100
+    )
+
+    senha = forms.CharField(
+        label='Senha',
+        required=True,
+        max_length=70,
+    widget = forms.PasswordInput()
     )
