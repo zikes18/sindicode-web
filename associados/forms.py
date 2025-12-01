@@ -16,6 +16,20 @@ class AssociadoForm(forms.Form):
         required=False,
         max_length=100
     )
+    cpf = forms.CharField(
+        label="CPF",
+        required=True,
+        max_length=14,
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'placeholder': 'Digite seu CPF'})
+    )
+    rg = forms.CharField(
+        label="RG",
+        required=True,
+        max_length=7,
+        widget=forms.TextInput(attrs={'class': 'form-control',
+                                      'placeholder': 'Digite seu RG'})
+    )
     # --- CAMPO 3: IDENTIDADE DE GÊNERO ---
     identidade_genero = forms.ChoiceField(
         label='Qual sua identidade de gênero?',
@@ -31,9 +45,31 @@ class AssociadoForm(forms.Form):
         required=True,
         help_text='Use apenas se a opção "Outro" tiver sido selecionada.'
     )
-    senha = forms.CharField(
-        label="Senha",
+    email = forms.EmailField(
+        label='E-mail',
         required=True,
-        max_length=20,
-        widget=forms.PasswordInput(attrs={'class': 'form-control'}),
+        max_length=100,
+        widget=forms.EmailInput(attrs={'class': 'form-control',
+                                       'placeholder': 'Digite seu e-mail'}),
+    )
+    senha_1 = forms.CharField(
+        label='Senha',
+        required=True,
+        max_length=70,
+        widget=forms.PasswordInput(
+            attrs={'class': 'form-control',
+                'placeholder': 'Digite sua senha'}
+        ),
+    )
+
+    senha_2 = forms.CharField(
+        label='Senha',
+        required=True,
+        max_length=70,
+        widget=forms.PasswordInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Digite sua senha novamente',
+            }
+        ),
     )

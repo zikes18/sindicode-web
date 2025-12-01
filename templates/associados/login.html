@@ -3,7 +3,7 @@
 
 {% block content %}
      <div class="container mt-5">
-        <h2>Login</h2>
+        <h2 class="text-primary">Login</h2>
         <form action="{% url 'login' %}" method="POST">
             {% csrf_token %}
             

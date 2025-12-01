@@ -6,33 +6,64 @@
         <h2 class="text-primary">Cadastro de Associado</h2>
         <form action="{% url 'cadastro' %}" method="POST">
             {% csrf_token %}
-            
+
             <div class="mb-3">
                 <label for="id_nome_completo" class="form-label text-secondary">Nome Completo</label>
                 {{ form.nome_completo }}
             </div>
-            
+
             <div class="mb-3">
                 <label for="id_nome_social" class="form-label text-secondary">Nome Social</label>
                 {{ form.nome_social }}
             </div>
-            
-            <div class="mb-3">
-                <label for="id_identidade_genero" class="form-label text-secondary">Qual sua identidade de gênero?</label>
-                {{ form.identidade_genero }}
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label text-secondary" for="id_cpf">CPF</label>
+                    <input type="text" name="cpf" id="id_cpf" class="form-control" placeholder="XXX.XXX.XXX-XX" required>
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label text-secondary" for="id_rg">RG</label>
+                    <input type="text" name="rg" id="id_rg" class="form-control" placeholder="Digite seu RG" required>
+                </div>
             </div>
-            
+
+            <div class="mb-3">
+                <label class="form-label text-secondary" for="id_email">E-mail</label>
+                <input type="email" name="email" id="id_email" class="form-control" placeholder="email@example.com" value="{{ email }}" required>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="id_identidade_genero" class="form-label text-secondary">Qual sua identidade de gênero?</label>
+                    {{ form.identidade_genero }}
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label text-secondary" for="id_data_nascimento">Data de Nascimento</label>
+                    <input type="date" name="data_nascimento" id="id_data_nascimento" class="form-control" required>
+                </div>
+            </div>
+
             <div class="mb-3" id="outro-genero-div" style="display:none;">
                 <label for="id_genero_outro" class="form-label text-secondary">Especifique outro gênero</label>
                 {{ form.genero_outro }}
             </div>
-            
-            <div class="mb-3">
-                <label for="id_senha" class="form-label text-secondary">Senha</label>
-                {{ form.senha }}
+
+            <div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label text-secondary">Senha</label>
+                    {{ form.senha_1 }}
+                </div>
+
+                <div class="mb-3">
+                    <label for="senha" class="form-label text-secondary">Confirme a senha</label>
+                    {{ form.senha_2 }}
+                </div>
             </div>
-            
-            <button type="submit" class="btn btn-info">Cadastrar</button>
+
+            <button type="submit" class="btn btn-info mb-4">Cadastrar</button>
         </form>
     </div>
 
@@ -42,7 +73,7 @@
         const outroGeneroDiv = document.getElementById('outro-genero-div');
 
         identidadeGeneroSelect.addEventListener('change', function() {
-            if (this.value === 'O') {
+            if (this.value === 'O') { // Supondo que 'O' seja a opção para "Outro"
                 outroGeneroDiv.style.display = 'block';
             } else {
                 outroGeneroDiv.style.display = 'none';

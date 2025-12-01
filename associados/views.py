@@ -7,6 +7,8 @@ def login(request):
     return render(request, 'associados/login.html')
 def cadastro(request):
     form = AssociadoForm()
+    if request.method == 'POST':
+        form = AssociadoForm(request.POST)
     return render(request, 'associados/cadastro.html',{'form': form})
 def login_view(request):
     if request.method == 'POST':
