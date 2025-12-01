@@ -64,8 +64,8 @@ body {
 }
 
 .btn-success:hover {
-    background-color: #96c92a !important; /* Um tom levemente mais escuro */
-    border-color: #96c92a !important;
+    background-color: #352ac9 !important; /* Um tom levemente mais escuro */
+    border-color: #3a2ac9 !important;
 }
 
 /* Botão de Destaque (Azul Tech) */
@@ -168,16 +168,15 @@ body {
     height: 16px;
     display: block; /* Garante que a imagem se comporte bem no layout */
 }
-/* * NOTA: Os estilos antigos (#topo, #midias_busca, main, footer)
- * foram removidos. Agora, você deve aplicar as classes do
- * Bootstrap (como "bg-primary", "text-secondary", "border")
- * diretamente no seu HTML.
- *
- * Exemplo no HTML:
- * <footer class="bg-primary" style="color: var(--sindcode-texto-secundario);">
- * ...
- * </footer>
- * <main class="border">
- * ...
- * </main>
- */
+/* Estilo dos campos de input */
+input, select, textarea {
+    width: 100%; /* Garante que o campo preencha o espaço disponível */
+    max-width: 400px; /* Limita a largura para não ocupar toda a tela */
+    background-color: var(--sindcode-fundo-claro);
+    border: 1px solid var(--sindcode-borda);
+    color: var(--sindcode-texto-principal);
+}
+input:focus, select:focus, textarea:focus {
+    border-color: var(--bs-info);
+    outline: none;
+}

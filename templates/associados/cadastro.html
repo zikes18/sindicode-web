@@ -2,11 +2,51 @@
 {% load static %}
 
 {% block content %}
-    <h1>
-        página de cadastro
+    <div class="container mt-5">
+        <h2 class="text-primary">Cadastro de Associado</h2>
+        <form action="{% url 'cadastro' %}" method="POST">
+            {% csrf_token %}
+            
+            <div class="mb-3">
+                <label for="id_nome_completo" class="form-label text-secondary">Nome Completo</label>
+                {{ form.nome_completo }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_nome_social" class="form-label text-secondary">Nome Social</label>
+                {{ form.nome_social }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_identidade_genero" class="form-label text-secondary">Qual sua identidade de gênero?</label>
+                {{ form.identidade_genero }}
+            </div>
+            
+            <div class="mb-3" id="outro-genero-div" style="display:none;">
+                <label for="id_genero_outro" class="form-label text-secondary">Especifique outro gênero</label>
+                {{ form.genero_outro }}
+            </div>
+            
+            <div class="mb-3">
+                <label for="id_senha" class="form-label text-secondary">Senha</label>
+                {{ form.senha }}
+            </div>
+            
+            <button type="submit" class="btn btn-info">Cadastrar</button>
+        </form>
+    </div>
 
-        cadastre aqui
-        ulhul
-    </h1>
+    <script>
+        // Mostrar ou esconder o campo de "Outro" baseado na seleção de gênero
+        const identidadeGeneroSelect = document.getElementById('id_identidade_genero');
+        const outroGeneroDiv = document.getElementById('outro-genero-div');
 
+        identidadeGeneroSelect.addEventListener('change', function() {
+            if (this.value === 'O') {
+                outroGeneroDiv.style.display = 'block';
+            } else {
+                outroGeneroDiv.style.display = 'none';
+            }
+        });
+    </script>
 {% endblock %}
