@@ -2,79 +2,95 @@
 {% load static %}
 
 {% block content %}
-    <div class="container mt-5">
-        <h2 class="text-primary">Cadastro de Associado</h2>
-        <form action="{% url 'cadastro' %}" method="POST">
-            {% csrf_token %}
+<div class="container mt-5">
+    <h2 class="text-primary">Cadastro de Associado</h2>
+    <form action="{% url 'cadastro' %}" method="POST">
+        {% csrf_token %}
 
-
-            <div class="mb-3">
-                <label class="form-label text-secondary" for="{{form.nome_completo.id_for_label}}">Nome Completo</label>
+        <!-- NOME COMPLETO -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.nome_completo.label_tag }}
                 {{ form.nome_completo }}
+                {{ form.nome_completo.errors }}
             </div>
 
-            <div class="mb-3">
-                <label for="{{ form.nome_social.id_for_label }}" class="form-label text-secondary">Nome Social</label>
+            <!-- NOME SOCIAL -->
+            <div class="col-md-6">
+                {{ form.nome_social.label_tag }}
                 {{ form.nome_social }}
+                {{ form.nome_social.errors }}
+            </div>
+        </div>
+
+        <!-- CPF e RG -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.cpf.label_tag }}
+                {{ form.cpf }}
+                {{ form.cpf.errors }}
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label class="form-label text-secondary" for="{{ form.cpf.id_for_label }}">CPF</label>
-                    {{ form.cpf }}
-                </div>
+            <div class="col-md-6">
+                {{ form.rg.label_tag }}
+                {{ form.rg }}
+                {{ form.rg.errors }}
+            </div>
+        </div>
 
-                <div class="col-md-6">
-                    <label class="form-label text-secondary" for="{{ form.rg.id_for_label }}">RG</label>
-                    {{ form.rg }}
-                </div>
+        <!-- EMAIL -->
+        <div class="mb-3">
+            {{ form.email.label_tag }}
+            {{ form.email }}
+            {{ form.email.errors }}
+        </div>
+
+        <!-- IDENTIDADE DE GÊNERO -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                {{ form.identidade_genero.label_tag }}
+                {{ form.identidade_genero }}
+                {{ form.identidade_genero.errors }}
+            </div>
+        </div>
+
+        <!-- CAMPO “OUTRO GÊNERO” (aparece só se escolhido) -->
+        <div class="mb-3" id="outro-genero-div" style="display: none;">
+            {{ form.genero_outro.label_tag }}
+            {{ form.genero_outro }}
+            {{ form.genero_outro.errors }}
+        </div>
+
+        <!-- SENHAS -->
+        <div class="row mb-4">
+            <div class="col-md-6">
+                {{ form.senha_1.label_tag }}
+                {{ form.senha_1 }}
+                {{ form.senha_1.errors }}
             </div>
 
-            <div class="mb-3">
-                <label class="form-label text-secondary" for="{{ form.email.id_for_label }}l">E-mail</label>
-                {{ form.email }}
-
+            <div class="col-md-6">
+                {{ form.senha_2.label_tag }}
+                {{ form.senha_2 }}
+                {{ form.senha_2.errors }}
             </div>
+        </div>
 
-            <div class="row mb-3">
-                <div class="col-md-6">
-                    <label for="{{ form.identidade_genero.id_for_label }}" class="form-label text-secondary">Qual sua identidade de gênero?</label>
-                    {{ form.identidade_genero }}
-                </div>
-            </div>
+        <button type="submit" class="btn btn-info mb-4">Cadastrar</button>
+    </form>
+</div>
 
-            <div class="mb-3" id="outro-genero-div" style="display:none;">
-                <label for="{{ form.genero_outro.id_for_label }}" class="form-label text-secondary">Especifique outro gênero</label>
-                {{ form.genero_outro }}
-            </div>
+<script>
+    // Mostrar ou esconder o campo de "Outro" baseado na seleção de gênero
+    const identidadeGeneroSelect = document.getElementById('id_identidade_genero');
+    const outroGeneroDiv = document.getElementById('outro-genero-div');
 
-            <div class="row mb-4">
-                <div class="col mb-3">
-                    <label for="{{ form.senha_1.id_for_label }}" class="form-label text-secondary">Senha</label>
-                    {{ form.senha_1 }}
-                </div>
-
-                <div class="col mb-6">
-                    <label for="{{ form.senha_2.id_for_label }}" class="form-label text-secondary">Confirme a senha</label>
-                    {{ form.senha_2 }}
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-info mb-4">Cadastrar</button>
-        </form>
-    </div>
-
-    <script>
-        // Mostrar ou esconder o campo de "Outro" baseado na seleção de gênero
-        const identidadeGeneroSelect = document.getElementById('id_identidade_genero');
-        const outroGeneroDiv = document.getElementById('outro-genero-div');
-
-        identidadeGeneroSelect.addEventListener('change', function() {
-            if (this.value === 'O') { // Supondo que 'O' seja a opção para "Outro"
-                outroGeneroDiv.style.display = 'block';
-            } else {
-                outroGeneroDiv.style.display = 'none';
-            }
-        });
-    </script>
+    identidadeGeneroSelect.addEventListener('change', function() {
+        if (this.value === 'O') { // Supondo que 'O' seja a opção para "Outro"
+            outroGeneroDiv.style.display = 'block';
+        } else {
+            outroGeneroDiv.style.display = 'none';
+        }
+    });
+</script>
 {% endblock %}

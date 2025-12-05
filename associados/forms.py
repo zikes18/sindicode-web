@@ -10,11 +10,14 @@ class AssociadoForm(forms.Form):
     nome_completo = forms.CharField(
         label="Nome completo",
         required=True,
-        max_length=100)
+        max_length=100,
+        widget = forms.TextInput(attrs={'class': 'form-control'})
+    )
     nome_social = forms.CharField(
         label="Nome social (como você prefere ser chamado (a)",
         required=False,
-        max_length=100
+        max_length=100,
+        widget=forms.TextInput(attrs={'class': 'form-control'})
     )
     cpf = forms.CharField(
         label="CPF",
@@ -43,8 +46,8 @@ class AssociadoForm(forms.Form):
     genero_outro = forms.CharField(
         label='Selecione "Outro" acima e especifique',
         max_length=100,
-        required=True,
-        help_text='Use apenas se a opção "Outro" tiver sido selecionada.'
+        required=False,
+        help_text='Use apenas se a opção "Outro" tiver sido selecionada.',
     )
     email = forms.EmailField(
         label='E-mail',
