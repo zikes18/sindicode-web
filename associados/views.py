@@ -1,19 +1,39 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from associados.forms import AssociadoForm, LoginForm
+from django.contrib import auth , messages
 
 
 def associados(request):
     return render(request, 'associados/index.html')
+
 def login(request):
-    form = LoginForm()
+    form = LoginForm(request.POST)
+    #Verificar envio de requisição
+    if request.method == 'POST':
+        nome = form['nome_login'].value()
+        senha = form['senha'].value()
+        usuario = auth.authenticate(
+            request,
+            username=nome,
+            password=senha
+        )
+        if usuario is not None:
+            auth.login(request, usuario)
+            messages.success(request, f'{nome}, BOA ZERO MEIA')
+            return redirect('beneficios')
+        else:
+            messages.error(request, 'Erro ao logar')
+            return redirect('login')
     return render(request, 'associados/login.html', {'form': form})
+
 def cadastro(request):
     form = AssociadoForm()
     if request.method == 'POST':
         form = AssociadoForm(request.POST)
         if form.is_valid():
             if form['senha_1'].value() != form['senha_2'].value():
+                messages.error(request, 'As senhas não são iguais')
                 return redirect('cadastro')
             nome_completo = form['nome_completo'].value()
             nome_social = form['nome_social'].value()
@@ -30,7 +50,6 @@ def cadastro(request):
                 password = senha
             )
             associado.save()
+            messages.success(request, f'{nome_completo}, Cadastrou com sucesso')
             return redirect('login')
-
     return render(request, 'associados/cadastro.html',{'form': form})
-

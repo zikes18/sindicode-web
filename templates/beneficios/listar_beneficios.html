@@ -1,0 +1,13 @@
+{% extends 'noticias/base.html' %}
+{% load static %}
+
+{% block content %}
+{% for message in messages %}
+{% csrf_token %}
+    <div>
+        <p id="messages">{{message}}</p>
+    </div>
+    {% endfor %}
+    O usuario vai visualizar os beneficios...
+
+{% endblock %}
