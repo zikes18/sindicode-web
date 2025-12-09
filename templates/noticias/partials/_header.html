@@ -23,12 +23,13 @@
                     <li class="nav-item"><a class="nav-link text-white-50"
                                             href="{% url 'todas_noticias' %}">Notícias</a></li>
                     <li class="nav-item"><a class="nav-link text-white-50" href="#">Fale Conosco</a></li>
-                    <li class="nav-item"><a class="nav-link text-white-50"
-                                            href="{% url 'cadastro' %}">Vire um associado</a></li>
-                   {% if request.user.is_authenticated %}
+                    {% if request.user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link text-white-50" href="{% url 'logout' %}">LOGOUT</a>
                     </li>
+                    {% else %}
+                    <li class="nav-item"><a class="nav-link text-white-50"
+                                            href="{% url 'cadastro' %}">Vire um associado</a></li>
                     {% endif %}
 
                 </ul>

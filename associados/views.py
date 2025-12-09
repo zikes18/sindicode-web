@@ -3,11 +3,8 @@ from django.shortcuts import render, redirect
 from associados.forms import AssociadoForm, LoginForm
 from django.contrib import auth , messages
 
-
-
 def associados(request):
     return render(request, 'associados/index.html')
-
 
 def login(request):
     form = LoginForm(request.POST)
