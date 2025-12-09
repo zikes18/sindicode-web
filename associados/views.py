@@ -4,8 +4,10 @@ from associados.forms import AssociadoForm, LoginForm
 from django.contrib import auth , messages
 
 
+
 def associados(request):
     return render(request, 'associados/index.html')
+
 
 def login(request):
     form = LoginForm(request.POST)
@@ -20,12 +22,20 @@ def login(request):
         )
         if usuario is not None:
             auth.login(request, usuario)
-            messages.success(request, f'{nome}, BOA ZERO MEIA')
+            messages.success(request, f'{nome}, BOA ZERO MEIA, fez o login')
             return redirect('beneficios')
         else:
             messages.error(request, 'Erro ao logar')
             return redirect('login')
     return render(request, 'associados/login.html', {'form': form})
+
+def logout(request):
+    #não esquecer request
+    if request.user.is_authenticated:
+        auth.logout(request)
+        messages.success(request, 'Logout efetuado com sucesso')
+
+    return redirect('login')
 
 def cadastro(request):
     form = AssociadoForm()
@@ -43,6 +53,7 @@ def cadastro(request):
             identidade_genero = form['identidade_genero'].value()
             senha = form['senha_1'].value()
             if User.objects.filter(username=nome_completo).exists():
+                messages.info(request, 'Nome de usuário já cadastrado')
                 return redirect('cadastro')
             associado = User.objects.create_user(
                 username = nome_completo,

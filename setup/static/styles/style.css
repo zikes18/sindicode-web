@@ -72,7 +72,7 @@ body {
 .btn-info {
     background-color: var(--bs-info) !important;
     border-color: var(--bs-info) !important;
-    margin-right: 2em;
+    margin-right: 2px;
 }
 
 .btn-info:hover {
@@ -180,4 +180,28 @@ input, select, textarea {
 input:focus, select:focus, textarea:focus {
     border-color: var(--bs-info);
     outline: none;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+
+.alert-error {
+    background-color: #dc3545;
+    color: white;
+}
+
+.alert-warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+.alert-info {
+    background-color: #17a2b8;
+    color: white;
+}
+
+.custom-alert p {
+    font-weight: bold;
 }
