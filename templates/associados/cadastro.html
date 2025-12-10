@@ -76,10 +76,10 @@
             </div>
         </div>
         {% for message in messages %}
-                <div class="alert alert-{{ message.tags }} custom-alert">
-                    <p id="messages">{{message}}</p>
-                </div>
-            {% endfor %}
+        <div class="alert alert-{{ message.tags }} custom-alert">
+            <p id="messages">{{message}}</p>
+        </div>
+        {% endfor %}
 
         <button type="submit" class="btn btn-info mb-4">Cadastrar</button>
     </form>
@@ -90,7 +90,7 @@
     const identidadeGeneroSelect = document.getElementById('id_identidade_genero');
     const outroGeneroDiv = document.getElementById('outro-genero-div');
 
-    identidadeGeneroSelect.addEventListener('change', function() {
+    identidadeGeneroSelect.addEventListener('change', function () {
         if (this.value === 'O') { // Supondo que 'O' seja a opção para "Outro"
             outroGeneroDiv.style.display = 'block';
         } else {

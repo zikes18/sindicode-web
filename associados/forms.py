@@ -78,6 +78,25 @@ class AssociadoForm(forms.Form):
         ),
     )
 
+    def clean_nome_cadastro(self):
+        nome = self.cleaned_data.get('nome_completo')
+        if nome:
+            if nome != nome.strip():
+                raise forms.ValidationError('Não são permitidos espaços no início ou no fim.')
+            if ' ' in nome:
+                raise forms.ValidationError('Espaços não são permitidos nesse campo.')
+            return nome
+
+    def clean_senha_2(self):
+        senha_1 = self.cleaned_data.get('senha_1')
+        senha_2 = self.cleaned_data.get('senha_2')
+
+        if senha_1 and senha_2:
+            if senha_1 != senha_2:
+                raise forms.ValidationError('Senhas não são iguais')
+            else:
+                return senha_2
+
 class LoginForm(forms.Form):
     nome_login = forms.CharField(
         label='Nome de Login',
